@@ -1,3 +1,14 @@
+queries = [
+  ["CREATE_ACCOUNT", "1", "account1"],
+  ["CREATE_ACCOUNT", "2", "account1"],
+  ["CREATE_ACCOUNT", "3", "account2"],
+  ["DEPOSIT", "4", "non-existing", "2700"],
+  ["DEPOSIT", "5", "account1", "2700"],
+  ["PAY", "6", "non-existing", "2700"],
+  ["PAY", "7", "account1", "2701"],
+  ["PAY", "8", "account1", "200"]
+]
+
 def solution(queries):
     # Nested function to create a new account
     def CREATE_ACCOUNT(timestamp, account_id):
@@ -45,12 +56,5 @@ def solution(queries):
 
     return results  # Return the list of results
 
-# Sample list of queries
-queries = [
-    ["CREATE_ACCOUNT", "2023-08-15", "123"],
-    ["DEPOSIT", "2023-08-16", "123", "100"],
-    ["PAY", "2023-08-17", "123", "50"]
-]
-
 # Call the solution function with the sample queries
-print(solution(queries))  # Output: ['true', '100', '50']
+print(solution(queries))
